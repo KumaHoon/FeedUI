@@ -5,7 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createNativeStackNavigator } from "@react-navigation/native-stack";
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Chat from './page/feed/screens/Chat';
+import Mainhome from './page/login/screen/Mainhome'
+import Login from './page/login/screen/Login'
 import Contact from './page/feed/screens/Contact';
 import Notice from './page/feed/screens/Notice';
 import Setting from './page/feed/screens/Setting';
@@ -13,6 +14,8 @@ import Home from './page/feed/screens/Home';
 import QnA from './page/feed/screens/QnA';
 import Profile from './page/feed/screens/Profile';
 import Contents from './page/feed/screens/Contents';
+
+
 import Ionic from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Entypo from "react-native-vector-icons/Entypo"
@@ -126,7 +129,14 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <TopTab/>
+      <Stack.Navigator
+      screenOptions={{
+        headerShown : false
+      }} initialRouteName={"Mainhome"}>
+          <Stack.Screen name="Mainhome" component={Mainhome} />
+          <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name = "Bottom" component={TopTab}/>
+      </Stack.Navigator>
     </NavigationContainer>
     
   );
