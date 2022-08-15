@@ -7,6 +7,7 @@ import {createNativeStackNavigator } from "@react-navigation/native-stack";
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Mainhome from './page/login/screen/Mainhome'
 import Login from './page/login/screen/Login'
+import Chat from './page/feed/screens/Chat';
 import Contact from './page/feed/screens/Contact';
 import Notice from './page/feed/screens/Notice';
 import Setting from './page/feed/screens/Setting';
@@ -112,7 +113,7 @@ const App = () => {
                     <Ionic name="search" style = {{fontSize: 24, color: "black"}}/>
                 </TouchableOpacity>
                 <Text>  </Text>
-                <TouchableOpacity onPress={() => alert('검색!')}>
+                <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
                     <Entypo name="chat" style = {{fontSize: 24, color: "black"}}/>
                 </TouchableOpacity>
               </View>
@@ -136,6 +137,8 @@ const App = () => {
           <Stack.Screen name="Mainhome" component={Mainhome} />
           <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name = "Bottom" component={TopTab}/>
+        <Stack.Screen name = "Chat" component={Chat}/>
+        <Stack.Screen name = "홈" component={Home}/>
       </Stack.Navigator>
     </NavigationContainer>
     

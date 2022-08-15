@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StatusBar, Dimensions} from 'react-native';
+import { Text, View, StatusBar, Dimensions, TouchableOpacity} from 'react-native';
 import Entypo from "react-native-vector-icons/Entypo";
 import Feather from "react-native-vector-icons/Feather";
 import Ionic from "react-native-vector-icons/Ionicons";
@@ -36,7 +36,7 @@ export const ProfileTop = ({name}) => {
     )
 }
 
-const Toptab = ({name}) => {
+const Toptab = ({navigation}) => {
     return(
         <>
         <StatusBar 
@@ -54,16 +54,13 @@ const Toptab = ({name}) => {
             paddingHorizontal: 15,
             alignItems: 'center'
         }}>
-            <Entypo name="menu" style={{fontSize: 26, color: "black"}}/>
-            <View style={{position:"absolute", left:width/7 * 3 }}>
+            <TouchableOpacity onPress={() => navigation.navigate("홈")}> 
+                <Ionic name="arrow-back" style={{fontSize: 26, color: "black"}}/>
+            </TouchableOpacity>
+            <View style={{position:"absolute", left:width/2-42 }}>
                 <Text style ={{fontSize: 21, color : "black", fontWeight:"bold"}}>
-                    {name}
+                    채팅목록
                 </Text>
-            </View>
-            <View style={{flexDirection:'row'}}>
-                <Ionic name="search" style = {{fontSize: 24, color: "black"}}/>
-                <Text>  </Text>
-                <Entypo name="chat" style = {{fontSize: 24, color: "black"}}/>
             </View>
         </View>
         </>
