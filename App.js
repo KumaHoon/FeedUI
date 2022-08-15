@@ -16,9 +16,11 @@ import Profile from './page/feed/screens/Profile';
 import Contents from './page/feed/screens/Contents';
 import Ionic from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Mainhome from './page/login/screen/Mainhome'
+import Login from './page/login/screen/Login'
 
 const App = () => {
-  
+
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
@@ -62,20 +64,22 @@ const App = () => {
           <Tab.Screen name="Contents" component = {Contents}/>
           <Tab.Screen name="QnA" component = {QnA}/>
           <Tab.Screen name="My Page" component = {Profile}/>
-          
+
       </Tab.Navigator>
-      
+
     )
   }
 
 
   return (
     <NavigationContainer>
-      
+
       <Stack.Navigator
       screenOptions={{
         headerShown : false
-      }}>
+      }} initialRouteName={"Mainhome"}>
+          <Stack.Screen name="Mainhome" component={Mainhome} />
+          <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name = "Bottom" component={BottomeTabScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
