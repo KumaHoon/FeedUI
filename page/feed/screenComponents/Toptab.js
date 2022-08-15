@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, StatusBar, Dimensions} from 'react-native';
-import Entypo from "react-native-vector-icons/Entypo"
-import Feather from "react-native-vector-icons/Feather"
+import Entypo from "react-native-vector-icons/Entypo";
+import Feather from "react-native-vector-icons/Feather";
+import Ionic from "react-native-vector-icons/Ionicons";
 
 const { width, height } = Dimensions.get('window');
 
@@ -24,9 +25,11 @@ export const ProfileTop = ({name}) => {
             alignItems: 'center'
         }}>
             <Entypo name="menu" style={{fontSize: 26, color: "black"}}/>
-            <Text style ={{fontSize: 21, color : "black", fontWeight:"bold"}}>
-                {name}
-            </Text>
+            <View style={{position:"absolute", left:width/5 * 2 }}>
+                <Text style ={{fontSize: 21, color : "black", fontWeight:"bold"}}>
+                    {name}
+                </Text>
+            </View>
             <Feather name="settings" style = {{fontSize: 24, color : "black"}}/>
         </View>
         </>
@@ -52,10 +55,16 @@ const Toptab = ({name}) => {
             alignItems: 'center'
         }}>
             <Entypo name="menu" style={{fontSize: 26, color: "black"}}/>
-            <Text style ={{fontSize: 21, color : "black", fontWeight:"bold"}}>
-                {name}
-            </Text>
-            <Entypo name="chat" style = {{fontSize: 24, color: "black"}}/>
+            <View style={{position:"absolute", left:width/7 * 3 }}>
+                <Text style ={{fontSize: 21, color : "black", fontWeight:"bold"}}>
+                    {name}
+                </Text>
+            </View>
+            <View style={{flexDirection:'row'}}>
+                <Ionic name="search" style = {{fontSize: 24, color: "black"}}/>
+                <Text>  </Text>
+                <Entypo name="chat" style = {{fontSize: 24, color: "black"}}/>
+            </View>
         </View>
         </>
     )

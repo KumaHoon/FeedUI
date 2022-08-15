@@ -9,7 +9,6 @@ import {
     TouchableOpacity
 } from 'react-native';
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import {ProfileTop} from "../screenComponents/Toptab.js";
 import MyPost from "../screenComponents/MyPost.js"
 
 
@@ -18,11 +17,10 @@ const { width, height } = Dimensions.get('window');
 const Profile = () =>{
     return (
         <View style={{backgroundColor: '#f1f9ff', height:'100%'}}>
-            <ProfileTop name = "내 프로필"/>
             <SafeAreaView style = {styles.screen}>
                 <View style={{marginTop: 30, alignItems: 'center'}}>
                     <View style={{flexDirection: 'row'}}>
-                        <Image style={styles.avatar} source = {require('../storage/icons/user.jpg')}/>
+                        <Image style={styles.avatar} source = {{uri:'https://icon-library.com/images/generic-user-icon/generic-user-icon-13.jpg'}}/>
                         <View style={{
                             flexDirection:'column', 
                             marginLeft:width/7, 
@@ -44,11 +42,11 @@ const Profile = () =>{
                     </View>
                     
                     <View style={{flexDirection:'row'}}>
-                        <TouchableOpacity activeOpacity={0.8} style={styles.btn}>
+                        <TouchableOpacity activeOpacity={0.8} style={styles.btn} onPress={() => alert('이미 팔로우 중입니다')}>
                             <SimpleLineIcons name = "user-following" style={{fontSize:22, color: "#2699fb"}}/>
                             <Text style ={{marginTop:5, color:'grey'}}> 팔로우 중 </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={0.8} style={styles.btn}>
+                        <TouchableOpacity activeOpacity={0.8} style={styles.btn} onPress={() => alert('글 작성!')}>
                             <SimpleLineIcons name = "pencil" style={{fontSize:22, color: "#2699fb"}}/>
                             <Text style ={{marginTop:5, color:'grey'}}> 업로드 </Text>
                         </TouchableOpacity>
@@ -74,8 +72,6 @@ const styles = StyleSheet.create({
     screen: {
         flex:0.8,
         alignItems: 'center',
-        borderBottomWidth: 0.8,
-        borderBottomColor: 'grey',
         backgroundColor:'white'
     },
     avatar: {

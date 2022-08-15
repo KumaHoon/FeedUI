@@ -1,15 +1,13 @@
 import React from 'react';
-import { View, Text, Dimensions} from 'react-native';
+import { View, Text, Dimensions, TouchableOpacity} from 'react-native';
 import Banner from "../screenComponents/Banner.js"
 import {Data, Data2} from "../screenComponents/BannerData.js"
-import Toptab from "../screenComponents/Toptab";
 
 const { width, height } = Dimensions.get('window');
 
 const Contents = ({navigation}) => {
   return(
     <View style={{backgroundColor: '#f1f9ff', height:'100%'}}>
-            <Toptab name = "컨텐츠"/>
             <View >
               <View style={{flexDirection:'column', justifyContent : 'center' }}> 
                 <Text style = {{
@@ -46,9 +44,11 @@ const Contents = ({navigation}) => {
                 }}> 현직자에게 듣는 직업의 세계
                 </Text>
               </View>
-              <Text style = {{textAlign: 'right', fontSize: 12, marginRight: 8}}>
-              탐색 더보기 > 
-              </Text>
+                <TouchableOpacity onPress={() => alert('탐색 더보기!')}>
+                  <Text style = {{textAlign: 'right', fontSize: 12, marginRight: 8}}>
+                  탐색 더보기 > 
+                  </Text>
+                </TouchableOpacity>
               <Banner data = {Data2}/>
             </View>
     </View>

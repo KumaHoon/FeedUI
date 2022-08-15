@@ -1,46 +1,44 @@
 import React, {useState} from 'react';
-import { View, FlatList, Dimensions} from 'react-native';
+import { Text, View, FlatList, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
-import Simple from "react-native-vector-icons/SimpleLineIcons"
 import Evil from "react-native-vector-icons/EvilIcons"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 
 const { width, height } = Dimensions.get('window');
-
 
 const Post = ({params}) => { 
 
   const [data, setData] = useState([{
     id : 1,
-    userName: 'Neville Brody',
-    userInfo: '그래픽 디자이너',
-    avatar: 'https://post-phinf.pstatic.net/MjAxNzA4MTBfNzIg/MDAxNTAyMzUxMDY5OTM4.j-1npgxwDwo7wRKxf_eKvTLD_Cr-Uxmin6iugZvDbaYg.QtJy3cEVBCvss1C5nE_i-K9pbKZitogrRWKby8HC-ZAg.JPEG/M.1501833886.7757.1.jpg?type=w1200',
-    content: 'An electrician isn\'t an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in society. We ...',
-    timeAgo:'1시간 전',
-    like: '  735',
-    comment: ' 16'
+    userName: '하냥이',
+    userInfo: '한양고등학교 학생',
+    avatar: 'https://icon-library.com/images/generic-user-icon/generic-user-icon-13.jpg',
+    content: '인공지능 쪽에 관심이 많은 고1 학생입니다. 다들 이 분야에 대해서 준비할때 코딩은 필수라고 하던데 정말 그런가요?',
+    timeAgo:'5분 전',
+    comment: ' 16',
+    tag: '#AI #인공지능'
   }]);
 
   const [data2, setData2] = useState([{
     id : 2,
-    userName: '강형욱',
-    userInfo: '훈련사',
-    avatar: 'https://www.bodeum.co.kr/data/trainerImages/1505121345_TRAINER.jpg',
-    content: '제지하고 통제할 수 있는 사람이 칭찬할 수 있는 거에요. 통제할 수 없는 사람이 칭찬하게 되면 그 칭찬이 우스워져요. 그런데 통제할 수 있는 사람이 칭찬하면 감동이 돼요.',
-    timeAgo:'13시간 전',
-    like: '  1238',
-    comment: ' 63'
+    userName: '리오넬 메시',
+    userInfo: '한양중학교 학생',
+    avatar: 'https://histimes.com/wp-content/uploads/2022/07/NINTCHDBPICT000749515776-1-780x470.jpg',
+    content: '제가 게임 개발하는게 꿈인데 중학생때 해보면 좋을게 무엇이 있을까요?',
+    timeAgo:'4시간 전',
+    comment: ' 63',
+    tag: '#게임개발 #게임'
   }]);
 
   const [data3, setData3] = useState([{
     id : 3,
-    userName: 'Bong Joonho',
-    userInfo: '영화감독',
-    avatar: 'https://t1.daumcdn.net/cfile/blog/993231435C1A5A3207',
-    content: '어렸을 때 제가 항상 가슴에 새겼던 말이 있었는데, 영화 공부를 할 때 \'가장 개인적인 것이 가장 창의적인 것이다\' 그말을 하셨던 분이 누구였나면. 책에서 읽은 거였지만 그 말은 ...',
-    timeAgo:'2일 전',
+    userName: '신짱구',
+    userInfo: '액션고등학교 학생',
+    avatar: 'https://i1.sndcdn.com/artworks-Z5SLEGyINrvdjrkz-CQbgFA-t500x500.jpg',
+    content: '다들 부모님이 진로에 대해 반대하실 때 어떻게 하셨나요? 어떻게 설득해야할까요??',
+    timeAgo:'17시간 전',
     like: '  19840',
-    comment: ' 527'
+    comment: ' 527',
+    tag: '#일반'
   }]);
 
   
@@ -62,14 +60,13 @@ const Post = ({params}) => {
           </Header>
           <Content>
             <ContentText> {item.content} </ContentText>
+            <TagText>{item.tag}</TagText>
           </Content>
           <Footer>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Simple name="like" style = {{fontSize: 18, color: '#B5D3DB'}}/>
-              <Number>{item.like}</Number>
-              <View style={{flexDirection: 'row', alignItems: 'center', marginLeft:24}}></View>
+              <View style={{flexDirection: 'row', alignItems: 'center', marginLeft:5}}></View>
                 <Evil name="comment" style = {{fontSize: 26, color: '#B5D3DB'}}/>
-                <Number>{item.comment}</Number>
+                <Text style = {{fontSize:14, color: '#B5D3DB'}}> 답변하기 </Text>
             </View>
             <Time>{item.timeAgo}</Time>
           </Footer>
@@ -83,10 +80,8 @@ const Post = ({params}) => {
     <FlatList keyExtractor = {(_,index) => index} data = {data} renderItem={_renderItem}/>
     <FlatList keyExtractor = {(_,index) => index} data = {data2} renderItem={_renderItem}/>
     <FlatList keyExtractor = {(_,index) => index} data = {data3} renderItem={_renderItem}/>
-    <View style= {{position:'absolute', left: width*0.85}}>
-      <MaterialIcons name="add-circle" style = {{fontSize: 45, color: '#2699fb'}}/>
-    </View>
   </Container>
+  
 
 ); }
 
@@ -138,19 +133,19 @@ const Content = styled.View`
   height: 70px;
 `;
 const ContentText = styled.Text`
-  color: black;
+  color:black;
   font-size: 14px;
   line-height: 24px;
   `;
+const TagText = styled.Text`
+  color: grey;
+  font-size: 14px;
+  line-height: 24px;
+`;
 const Footer = styled.View`
   margin-top : 10px;
   flex-direction: row;
   justify-content: space-between;  
-`;
-const Number = styled.Text`
-  color: grey;
-  font-size: 13px;
-  line-height: 24px;
 `;
 
 

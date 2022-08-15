@@ -4,14 +4,14 @@ import {
   View,
 } from 'react-native';
 
-const Search = () =>{
+const Menu = () =>{
     return (
         <View>
             <Text>
-                Search Screen
+                Menu Screen
             </Text>
         </View>
     )
 }
 
-export default Search;
+export default Menu;
