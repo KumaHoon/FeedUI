@@ -4,14 +4,14 @@ import {
   View,
 } from 'react-native';
 
-const Book = () =>{
+const QnA = () =>{
     return (
         <View>
             <Text>
-            Book Screen
+            Dictionary Screen
             </Text>
         </View>
     )
 }
 
-export default Book;
+export default QnA;

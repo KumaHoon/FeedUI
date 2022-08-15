@@ -54,6 +54,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lobster-Regular.ttf</string>
+		<string>DynaPuff-VariableFont_wdth,wght.ttf</string>
+		<string>Gugi-Regular.ttf</string>
 	</array>
 </dict>
 </plist>
